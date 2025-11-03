@@ -1,0 +1,255 @@
+.navbar-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+/* LOGO */
+.navbar-logo a {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #2563eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* LINKS */
+.navbar-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.navbar-links a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    color: #374151;
+    transition: color 0.3s ease;
+    padding: 6px 0;
+}
+
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #2563eb;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #2563eb;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* ACTIONS */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ICONS */
+.icon-link {
+    position: relative;
+    font-size: 1.4rem;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-link:hover {
+    color: #2563eb;
+    transform: scale(1.1);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+/* BUTTONS */
+.btn-seller {
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-seller {
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.btn-seller:hover {
+    color: #2563eb;
+}
+
+/* USER */
+.navbar-user {
+    font-weight: 500;
+    color: #2563eb;
+}
+
+/* BURGER (mobile) */
+.menu-toggle {
+    display: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 220px;
+        background: white;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 0 0 12px 12px;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menu caché par défaut */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    padding: 12px;
+    min-width: 200px;
+    z-index: 2000;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Affichage quand hover */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* Liens du dropdown */
+.dropdown-menu a {
+    text-decoration: none;
+    color: #374151;
+    font-size: 0.95rem;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #f3f4f6;
+    color: #2563eb;
+}
+
+/* Header (email ou texte) */
+.dropdown-header {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2563eb;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 6px;
+}
+
+/* Boutons login/register */
+.dropdown-btn {
+    display: block;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    background: #2563eb;
+    color: white;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background: #1d4ed8;
+}
+
+.dropdown-btn.outline {
+    background: white;
+    border: 1px solid #2563eb;
+    color: #2563eb;
+}
+
+.dropdown-btn.outline:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.nav-btn,
+.logout-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover,
+.logout-btn:hover {
+    background-color: #2563eb;
+}

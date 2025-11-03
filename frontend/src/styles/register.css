@@ -1,0 +1,87 @@
+/* src/styles/register.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.register-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 420px;
+    text-align: center;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2563eb;
+}
+
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.register-container input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+.register-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.register-container button:hover {
+    background: #1d4ed8;
+}
+
+.message {
+    margin-top: 15px;
+    color: #555;
+}
+
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-link a:hover {
+    color: #1d4ed8;
+}
