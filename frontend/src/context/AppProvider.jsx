@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
         }
     }, [cart, user]);
 
-    // 🧩 Charger l'utilisateur depuis le token (si existant)
+    // Charger l'utilisateur depuis le token (si existant)
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -39,7 +39,7 @@ const AppProvider = ({ children }) => {
         }
     }, []);
 
-    // ➕ Ajouter un produit au panier (seulement si connecté)
+    // Ajouter un produit au panier (seulement si connecté)
     const addToCart = (product) => {
         if (!user) {
             alert("⚠️ Vous devez être connecté pour ajouter un produit au panier.");
@@ -67,7 +67,7 @@ const AppProvider = ({ children }) => {
         });
     };
 
-    // ❌ Supprimer un produit précis
+    // Supprimer un produit précis
     const removeFromCart = (productId, selectedImage) => {
         setCart((prevCart) =>
             prevCart.filter(
@@ -77,7 +77,7 @@ const AppProvider = ({ children }) => {
         );
     };
 
-    // 🚪 Déconnexion
+    //  Déconnexion
     const logout = () => {
         setUser(null);
         setCart([]); // vide le panier
@@ -86,7 +86,7 @@ const AppProvider = ({ children }) => {
     };
 
 
-    // 🧹 Vider tout le panier
+    //  Vider tout le panier
     const clearCart = () => setCart([]);
 
     return (
