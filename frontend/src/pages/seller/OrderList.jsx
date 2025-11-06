@@ -7,7 +7,7 @@ export default function OrderList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    // ✅ Récupérer les ordres depuis le backend
+
     const fetchOrders = async () => {
         setLoading(true);
         setError("");
@@ -26,7 +26,7 @@ export default function OrderList() {
         fetchOrders();
     }, []);
 
-    // ✅ Modifier le statut d'un ordre
+   
     const updateStatus = async (orderId, newStatus) => {
         try {
             await api.put(`/seller/dashboard/orders/${orderId}/status`, null, {
