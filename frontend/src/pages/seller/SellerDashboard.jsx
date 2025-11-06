@@ -18,7 +18,7 @@ function SellerDashboard() {
     const [images, setImages] = useState([]);
 
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState(""); // ✅ nouveau
+    const [success, setSuccess] = useState(""); 
 
     const handleAddProduct = async (e) => {
         e.preventDefault();
@@ -155,7 +155,7 @@ function SellerDashboard() {
 
                         <button type="submit">Add Product</button>
 
-                        {/* ✅ messages stylés */}
+                        {/*  messages stylés */}
                         {success && <div className="success">{success}</div>}
                         {error && <div className="error">{error}</div>}
                     </form>
