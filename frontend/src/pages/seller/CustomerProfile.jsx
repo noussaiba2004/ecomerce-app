@@ -6,7 +6,7 @@ export default function CustomerProfile() {
     const [loading, setLoading] = useState(true);
     const token = localStorage.getItem("token");
 
-    // 🔹 Fonction pour charger les clients
+
     const fetchCustomers = async () => {
         if (!token) return;
         setLoading(true);
@@ -22,7 +22,7 @@ export default function CustomerProfile() {
         }
     };
 
-    // 🔹 Charger les clients à l’ouverture
+    
     useEffect(() => {
         fetchCustomers();
     }, [token]);
@@ -31,7 +31,7 @@ export default function CustomerProfile() {
         <div style={{ padding: "20px" }}>
             <h2>👥 My Customers</h2>
 
-            {/* 🔸 En-tête avec compteur et bouton actualiser */}
+            {/*  En-tête avec compteur et bouton actualiser */}
             <div
                 style={{
                     display: "flex",
