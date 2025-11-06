@@ -67,7 +67,7 @@ public class AuthController {
 
         String token = jwtUtil.generateToken(user.getEmail(), user.getRole());
 
-        // ✅ Retourner un JSON : token + infos user
+    
         return ResponseEntity.ok(Map.of(
                 "id", user.getId(),
                 "email", user.getEmail(),
@@ -79,7 +79,7 @@ public class AuthController {
     @GetMapping("/me")
     public ResponseEntity<User> getCurrentUser(Authentication authentication) {
         if (authentication == null || !authentication.isAuthenticated()) {
-            return ResponseEntity.status(401).build(); // sans body
+            return ResponseEntity.status(401).build(); 
         }
 
         return userService.findByEmail(authentication.getName())
