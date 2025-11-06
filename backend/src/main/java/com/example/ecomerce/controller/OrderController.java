@@ -46,7 +46,7 @@ public class OrderController {
             orderItem.setQuantity(itemDto.getQuantity());
             orderItem.setPrice(product.getPrice().doubleValue());
 
-            // Optionnel : mise à jour du stock
+        
             product.setStock(product.getStock() - itemDto.getQuantity());
             productRepository.save(product);
 
