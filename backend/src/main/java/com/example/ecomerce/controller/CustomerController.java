@@ -25,7 +25,7 @@ public class CustomerController {
         this.userRepository = userRepository;
         this.sellerRepository = sellerRepository;
     }
-    // 🔹 Récupérer tous les clients du vendeur connecté
+    
     @GetMapping
     public ResponseEntity<List<User>> getMyCustomers(Principal principal) {
         User user = userRepository.findByEmail(principal.getName())
@@ -34,7 +34,7 @@ public class CustomerController {
         Seller seller = sellerRepository.findByUser(user)
                 .orElseThrow(() -> new RuntimeException("Seller not found"));
 
-        // 🔹 Récupère tous les clients ayant acheté les produits du vendeur
+    
         List<User> customers = customerService.getCustomersBySeller(seller);
         return ResponseEntity.ok(customers);
     }
