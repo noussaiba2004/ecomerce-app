@@ -50,11 +50,9 @@ function Home() {
         }
     };
 
-    // 🔹 Fonction ajout au panier depuis le modal
     const handleAddToCart = () => {
         if (!user) {
             alert("⚠️ Vous devez être connecté pour ajouter un produit au panier.");
-            // Optionnel : rediriger vers la page de login
             window.location.href = "/login";
             return;
         }
