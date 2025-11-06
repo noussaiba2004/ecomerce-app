@@ -69,7 +69,7 @@ public class SellerProductController {
 
         List<String> imageUrls = new ArrayList<>();
         if (images != null && !images.isEmpty()) {
-            Path uploadDir = Paths.get("uploads"); // dossier à la racine du projet
+            Path uploadDir = Paths.get("uploads"); 
             if (!Files.exists(uploadDir)) {
                 Files.createDirectories(uploadDir);
             }
@@ -78,7 +78,7 @@ public class SellerProductController {
                     String filename = System.currentTimeMillis() + "_" + image.getOriginalFilename();
                     Path filePath = uploadDir.resolve(filename);
                     Files.copy(image.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-                    imageUrls.add("/uploads/" + filename); // ✅ chemin public
+                    imageUrls.add("/uploads/" + filename); 
                 }
             }
         }
@@ -116,26 +116,25 @@ public class SellerProductController {
     }
 
 
-    // ✅ Récupérer tous les ordres liés aux produits du vendeur
     @GetMapping("/orders")
     @PreAuthorize("hasAuthority('SELLER')")
     public ResponseEntity<List<OrderDTO>> getSellerOrders(
             Principal principal,
-            @RequestParam(required = false) String status,           // ✅ filtre par statut (ex: PAID, SHIPPED)
-            @RequestParam(required = false) String customerEmail,    // ✅ filtre par email client
+            @RequestParam(required = false) String status,           
+            @RequestParam(required = false) String customerEmail,    
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fromDate, // ✅ depuis une date
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime toDate     // ✅ jusqu’à une date
     ) {
         String email = principal.getName();
 
-        // 🔹 1️⃣ Récupérer le vendeur connecté
+        
         Seller seller = sellerRepository.findByUserEmail(email)
                 .orElseThrow(() -> new RuntimeException("Seller not found"));
 
-        // 🔹 2️⃣ Récupérer tous les ordres associés à ses produits
+        
         List<Order> orders = orderRepository.findOrdersBySellerId(seller.getId());
 
-        // 🔹 3️⃣ Appliquer les filtres optionnels
+        
         List<Order> filteredOrders = orders.stream()
                 .filter(o -> (status == null || o.getStatus().equalsIgnoreCase(status)))
                 .filter(o -> (customerEmail == null || o.getUser().getEmail().equalsIgnoreCase(customerEmail)))
@@ -143,7 +142,7 @@ public class SellerProductController {
                 .filter(o -> (toDate == null || o.getCreatedAt().isBefore(toDate)))
                 .toList();
 
-        // 🔹 4️⃣ Conversion en DTO
+        
         List<OrderDTO> orderDTOs = filteredOrders.stream()
                 .map(order -> OrderDTO.builder()
                         .id(order.getId())
@@ -160,7 +159,7 @@ public class SellerProductController {
         return ResponseEntity.ok(orderDTOs);
     }
 
-    // ✅ Modifier le statut d’un ordre
+    
     @PutMapping("/orders/{orderId}/status")
     @PreAuthorize("hasAuthority('SELLER')")
     public ResponseEntity<?> updateOrderStatus(
