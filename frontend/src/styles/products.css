@@ -14,11 +14,11 @@
 
 .products-grid {
     display: flex;
-    flex-wrap: wrap; /* ✅ permet de retourner à la ligne */
-    justify-content: flex-end; /* ✅ commence à droite */
+    flex-wrap: wrap; 
+    justify-content: flex-end; 
     gap: 25px;
     padding: 10px;
-    direction: rtl; /* ✅ sens d'affichage droite → gauche */
+    direction: rtl; 
 }
 .products-grid.fill-dense {
     grid-auto-flow: row dense;
