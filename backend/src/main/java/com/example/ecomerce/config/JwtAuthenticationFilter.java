@@ -50,7 +50,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String role = user.getRole(); // "SELLER", "CUSTOMER", etc.
             var authority = new SimpleGrantedAuthority(role);
 
-            // 🔥 on met l'email comme principal au lieu de l'entité User
+        
             var authToken = new UsernamePasswordAuthenticationToken(email, null, List.of(authority));
             SecurityContextHolder.getContext().setAuthentication(authToken);
         }
