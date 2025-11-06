@@ -34,9 +34,9 @@ function Login() {
             setAuthToken(data.token);
             // Save user in context
             setUser({
-                id: data.id,         // ✅ indispensable pour checkout
+                id: data.id,         
                 email: data.email,
-                role: data.role,     // USER ou SELLER
+                role: data.role,     
             });
 
             // Redirect according to role
