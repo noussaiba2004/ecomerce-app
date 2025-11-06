@@ -16,7 +16,7 @@ function Products() {
             .catch((err) => console.error("Error loading products:", err));
     }, []);
 
-    // Fonction d’ajout au panier avec quantité et image choisie
+
     const handleAddToCart = () => {
         if (!selectedProduct) return;
 
@@ -31,7 +31,7 @@ function Products() {
         };
 
         addToCart(productToAdd);
-        setSelectedProduct(null); // 👈 ferme le modal
+        setSelectedProduct(null);
         setQuantity(1);
         setSelectedImage(null);
     };
